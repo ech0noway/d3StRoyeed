@@ -1,0 +1,29 @@
+<!DOCTYPE html> 
+ 
+ <html>
+    <head>                                                                                                         
+      <meta charset="utf-8">
+      <title>d3StRoyeed</title>
+    </head> 
+<style>
+    body 
+     {
+      background-color: black; 
+      color: white; 
+    }
+  </style>
+<script>
+  const text = "Дестроид 🥶😈😈😈";
+  let i = 0;
+  const speed = 70;
+
+  function typeWriter() {
+    if (i < text.length) {
+      document.getElementById("typing").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+<img src="d3.png" alt="WOW" width="300"/>
+  typeWriter();
+</script>  
