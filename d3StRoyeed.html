@@ -1,30 +1,47 @@
-<!DOCTYPE html> 
- 
- <html>
-    <head>                                                                                                         
-      <meta charset="utf-8">
-      <title>d3StRoyeed</title>
-    </head> 
-<style>
-    body 
-     {
-      background-color: black; 
-      color: white; 
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>d3StRoyeed</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: monospace;
+      padding: 20px;
+    }
+
+    #typing {
+      font-size: 24px;
+      margin-bottom: 20px;
     }
   </style>
-<script>
-  const text = "Дестроид 🥶😈😈😈";
-  let i = 0;
-  const speed = 70;
+</head>
+<body>
 
-  function typeWriter() {
-    if (i < text.length) {
-      document.getElementById("typing").innerHTML += text.charAt(i);
-      i++;
-      setTimeout(typeWriter, speed);
-    }
-  }
-  typeWriter();
-</script>  
+  <!-- Элемент, куда будет "печататься" текст -->
+  <div id="typing"></div>
+
+  <!-- Картинка -->
   <img src="d3.png" alt="WOW" width="300"/>
- </html>
+
+  <!-- Скрипт для печатающего текста -->
+  <script>
+    const text = "Дестроид 🥶😈😈😈";
+    let i = 0;
+    const speed = 70;
+
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+
+    typeWriter();
+  </script>
+
+</body>
+</html>
+
