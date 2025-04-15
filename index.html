@@ -4,12 +4,60 @@
   <meta charset="utf-8">
   <title>d3StRoyeed</title>
   <style>
-    body 
-     {
-      background-color: black; 
-      color: white; 
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      transition: background-color 0.4s, color 0.4s;
+    }
+
+    body.light {
+      background-color: white;
+      color: black;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 12px 18px;
+      font-size: 14px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    .theme-toggle:hover {
+      background-color: #45a049;
     }
   </style>
+</head>
+<body>
+
+  <h1>Добро пожаловать на сайт ech0noway!</h1>
+  <p>Здесь будет вся информация про модеров, стримы и приколы.</p>
+
+  <!-- Кнопка для смены темы -->
+  <button class="theme-toggle" onclick="toggleTheme()">🌙 Сменить тему</button>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("light");
+
+      // Меняем текст кнопки в зависимости от темы
+      const btn = document.querySelector(".theme-toggle");
+      if (document.body.classList.contains("light")) {
+        btn.innerText = "🌞 Тёмная тема";
+      } else {
+        btn.innerText = "🌙 Светлая тема";
+      }
+    }
+  </script>
   <div style="position: absolute; right: 20px; top: 50px;">
     <button onclick="clickCounter()">кликай</button>
 <p>Дестроид забанил M8rphysa <span id="count">0</span> раз</p>
