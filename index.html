@@ -93,19 +93,6 @@
   } 
 </script>
   <h1 id="typing"></h1>
-<script> 
-  const text = "Всем привет тут будет вся информация про ech0noway и его модеров";
-  let i = 0;
-  const speed = 70;
-  function typeWriter() {
-    if (i < text.length) {
-      document.getElementById("typing").innerHTML += text.charAt(i);
-      i++;
-      setTimeout(typeWriter, speed);
-    }
-  }
-  typeWriter();
-</script>
 </head>
 <body>
   <!-- Элемент, куда будет "печататься" текст -->
