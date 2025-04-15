@@ -8,8 +8,8 @@
       background-color: #121212;
       color: white;
       font-family: Arial, sans-serif;
-      padding: 2rem;
       transition: background-color 0.4s, color 0.4s;
+      cursor: none;
     }
 
     body.light {
@@ -35,25 +35,56 @@
     .theme-toggle:hover {
       background-color: #45a049;
     }
+
+    .glow {
+      position: fixed;
+      pointer-events: none;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      box-shadow: 0 0 8px;
+      z-index: 9999;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    body:not(.light) .glow {
+      background-color: white;
+      box-shadow: 0 0 8px white;
+    }
+
+    body.light .glow {
+      background-color: black;
+      box-shadow: 0 0 8px black;
+    }
   </style>
 </head>
 <body>
 
+  <h1 style="text-align:center;">👋 Добро пожаловать!</h1>
+  <p style="text-align:center;">Нажми на кнопку внизу, чтобы сменить тему</p>
+
   <!-- Кнопка для смены темы -->
   <button class="theme-toggle" onclick="toggleTheme()">🌙 Сменить тему</button>
+
+  <!-- Кастомный курсор -->
+  <div class="glow" id="glow"></div>
 
   <script>
     function toggleTheme() {
       document.body.classList.toggle("light");
-
-      // Меняем текст кнопки в зависимости от темы
       const btn = document.querySelector(".theme-toggle");
       if (document.body.classList.contains("light")) {
-        btn.innerText = "🌙 Тёмная тема";
+        btn.innerText = "🌞 Тёмная тема";
       } else {
-        btn.innerText = "🌞 Светлая тема";
+        btn.innerText = "🌙 Светлая тема";
       }
     }
+
+    const glow = document.getElementById("glow");
+    document.addEventListener("mousemove", (e) => {
+      glow.style.left = e.pageX + "px";
+      glow.style.top = e.pageY + "px";
+    });
   </script>
   <div style="position: absolute; right: 20px; top: 50px;">
     <button onclick="clickCounter()">кликай</button>
