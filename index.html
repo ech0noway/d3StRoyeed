@@ -9,7 +9,7 @@
       color: white;
       font-family: Arial, sans-serif;
       transition: background-color 0.4s, color 0.4s;
-      cursor: none;
+      cursor: none; /* Скрываем системный курсор */
     }
 
     body.light {
@@ -27,7 +27,7 @@
       color: white;
       border: none;
       border-radius: 8px;
-      cursor: pointer;
+      cursor: pointer; /* Эта кнопка все еще реагирует на клики */
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       z-index: 1000;
     }
@@ -44,7 +44,8 @@
       border-radius: 50%;
       box-shadow: 0 0 8px;
       z-index: 9999;
-      transition: background-color 0.3s, box-shadow 0.3s;
+      transition: background-color 0.3s, box-shadow 0.3s, transform 0.05s;
+      transform: translate(-50%, -50%);
     }
 
     body:not(.light) .glow {
@@ -59,6 +60,7 @@
   </style>
 </head>
 <body>
+
   <!-- Кнопка для смены темы -->
   <button class="theme-toggle" onclick="toggleTheme()">🌙 Сменить тему</button>
 
@@ -78,8 +80,8 @@
 
     const glow = document.getElementById("glow");
     document.addEventListener("mousemove", (e) => {
-      glow.style.left = e.pageX + "px";
-      glow.style.top = e.pageY + "px";
+      glow.style.left = `${e.clientX}px`;
+      glow.style.top = `${e.clientY}px`;
     });
   </script>
   <div style="position: absolute; right: 20px; top: 50px;">
