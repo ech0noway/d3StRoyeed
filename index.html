@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <title>d3StRoyeed</title>
-  <style>
+<style>
     body {
       background-color: #121212;
       color: white;
       font-family: Arial, sans-serif;
+      padding: 2rem;
       transition: background-color 0.4s, color 0.4s;
-      cursor: none; /* Скрываем системный курсор */
     }
 
     body.light {
@@ -23,39 +23,17 @@
       right: 20px;
       padding: 12px 18px;
       font-size: 14px;
-      background-color: #4CAF50;
+      background-color: #f0f0f0;
       color: white;
       border: none;
       border-radius: 8px;
-      cursor: pointer; /* Эта кнопка все еще реагирует на клики */
+      cursor: pointer;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       z-index: 1000;
     }
 
     .theme-toggle:hover {
       background-color: #45a049;
-    }
-
-    .glow {
-      position: fixed;
-      pointer-events: none;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      box-shadow: 0 0 8px;
-      z-index: 9999;
-      transition: background-color 0.3s, box-shadow 0.3s, transform 0.05s;
-      transform: translate(-50%, -50%);
-    }
-
-    body:not(.light) .glow {
-      background-color: white;
-      box-shadow: 0 0 8px white;
-    }
-
-    body.light .glow {
-      background-color: black;
-      box-shadow: 0 0 8px black;
     }
   </style>
 </head>
@@ -64,61 +42,19 @@
   <!-- Кнопка для смены темы -->
   <button class="theme-toggle" onclick="toggleTheme()">🌙 Сменить тему</button>
 
-  <!-- Кастомный курсор -->
-  <div class="glow" id="glow"></div>
-
   <script>
     function toggleTheme() {
       document.body.classList.toggle("light");
+
+      // Меняем текст кнопки в зависимости от темы
       const btn = document.querySelector(".theme-toggle");
       if (document.body.classList.contains("light")) {
-        btn.innerText = "🌞 Тёмная тема";
+        btn.innerText = "🌙 Тёмная тема";
       } else {
-        btn.innerText = "🌙 Светлая тема";
+        btn.innerText = "🌞 Светлая тема";
       }
     }
-
-    const glow = document.getElementById("glow");
-    document.addEventListener("mousemove", (e) => {
-      glow.style.left = `${e.clientX}px`;
-      glow.style.top = `${e.clientY}px`;
-    });
   </script>
-  <div style="position: absolute; right: 20px; top: 50px;">
-    <button onclick="clickCounter()">кликай</button>
-<p>Дестроид забанил M8rphysa <span id="count">0</span> раз</p>
-  </div>
-  <style>
-  /* Скрываем стандартный курсор */
-  body {
-    cursor: none;
-  }
-
-  /* Наш кастомный курсор */
-  .glow {
-    position: fixed;
-    pointer-events: none;
-    width: 10px;
-    height: 10px;
-    background: white;
-    border-radius: 50%;
-    box-shadow: 0 0 8px white;
-    z-index: 9999;
-    transition: transform 0.05s ease;
-  }
-</style>
-
-<!-- Курсор-замена -->
-<div class="glow" id="glow"></div>
-
-<script>
-  const glow = document.getElementById("glow");
-
-  document.addEventListener("mousemove", (e) => {
-    glow.style.left = e.pageX + "px";
-    glow.style.top = e.pageY + "px";
-  });
-</script>
 <style>
     #typing {
       font-size: 24px;
