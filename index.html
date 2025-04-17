@@ -117,6 +117,18 @@
 
     typeWriter();
   </script>
+  <div class="click-card">
+  <button onclick="clickCounter()">Кликай</button>
+  <p>ech0noway взял в рот у модеров <span id="count">0</span> раз</p>
+</div>
+
+<script>
+  let count = 0;
+  function clickCounter() {
+    count++;
+    document.getElementById("count").textContent = count;
+  }
+</script>
 </body>
 </html>
 
