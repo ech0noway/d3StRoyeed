@@ -3,7 +3,123 @@
 <head>
   <meta charset="utf-8">
   <title>d3StRoyeed</title>
-<style>
+<style> 
+  <style>
+  body {
+    margin: 0;
+    padding: 40px;
+    background: #f4f4f4;
+    font-family: Arial, sans-serif;
+  }
+
+  .wide-card {
+    background-color: #cccacc;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    padding: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+    color: #333;
+  }
+
+  .wide-card h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #080808;
+  }
+
+  .gallery {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .gallery img {
+    width: 220px;
+    height: auto;
+    border-radius: 10px;
+    filter: blur(4px);
+    transition: 0.3s ease;
+    cursor: pointer;
+  }
+
+  .gallery img:hover {
+    filter: blur(0);
+    transform: scale(1.03);
+  }
+
+  /* Fullscreen overlay */
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  .overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  }
+
+  .overlay:active {
+    display: none;
+  }
+</style>
+
+<div class="wide-card">
+  <h3>Галерея ech0noway и его мира</h3>
+  <div class="gallery">
+    <img src="d3.png" alt="1" onclick="showFullscreen(this.src)">
+    <img src="d31.png" alt="2" onclick="showFullscreen(this.src)">
+    <img src="d32.png" alt="1" onclick="showFullscreen(this.src)">
+    <img src="d33.png" alt="1" onclick="showFullscreen(this.src)">
+    <img src="d34.png" alt="1" onclick="showFullscreen(this.src)">
+    <img src="d35.png" alt="1" onclick="showFullscreen(this.src)">
+    <img src="d36.png" alt="1" onclick="showFullscreen(this.src)">
+    <img src="d37.png" alt="1" onclick="showFullscreen(this.src)">
+    <img src="d38.png" alt="1" onclick="showFullscreen(this.src)">
+    <img src="d39.png" alt="1" onclick="showFullscreen(this.src)">
+    <img src="d310.png" alt="1" onclick="showFullscreen(this.src)">
+    <img src="d311.png" alt="1" onclick="showFullscreen(this.src)">
+    <img src="d312.png" alt="1" onclick="showFullscreen(this.src)">
+    <img src="d313.png" alt="1" onclick="showFullscreen(this.src)">
+    <img src="d314.png" alt="1" onclick="showFullscreen(this.src)">
+    <img src="d315.png" alt="1" onclick="showFullscreen(this.src)">
+    <img src="d316.png" alt="1" onclick="showFullscreen(this.src)">
+    <img src="d317.png" alt="1" onclick="showFullscreen(this.src)">
+    <img src="d318.png" alt="1" onclick="showFullscreen(this.src)">
+    <img src="d319.png" alt="1" onclick="showFullscreen(this.src)">
+    <!-- Можешь добавить сколько угодно -->
+  </div>
+</div>
+
+<!-- Fullscreen viewer -->
+<div class="overlay" id="fullscreenViewer" onclick="closeFullscreen()">
+  <img id="fullscreenImg" src="">
+</div>
+
+<script>
+  function showFullscreen(src) {
+    const viewer = document.getElementById("fullscreenViewer");
+    const img = document.getElementById("fullscreenImg");
+    img.src = src;
+    viewer.style.display = "flex";
+  }
+
+  function closeFullscreen() {
+    document.getElementById("fullscreenViewer").style.display = "none";
+  }
+</script>
+
     body {
       background-color: #121212;
       color: white;
@@ -54,7 +170,7 @@
   <script>
   document.addEventListener("keydown", (e) => {
     if (e.ctrlKey && e.key === "z") {
-      alert("Поздравляю ты долбаеб 😈😈");
+      alert("Лучший модер?🤔");
     }
   });
 </script>
@@ -99,11 +215,11 @@
   <div id="typing"></div>
 
   <!-- Картинка -->
-  <img src="d3.png" alt="WOW" width="300"/>
+  <img src="d3.png" alt="" width="300"/>
 
   <!-- Скрипт для печатающего текста -->
   <script>
-    const text = "Дестроид 🥶🥶😈😈😈☠";
+    const text = "Дестроид 🥶🥶😈😈😈";
     let i = 0;
     const speed = 70;
 
